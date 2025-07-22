@@ -25,6 +25,8 @@
 #define FUSE_USE_VERSION 26
 #endif
 
+#define PY_SSIZE_T_CLEAN
+
 #include <Python.h>
 #include <fuse.h>
 #include <sys/ioctl.h>
@@ -105,7 +107,7 @@ ERROR:
     #define PyString_AsString PyUnicode_AsUTF8
 #endif
     #define PyString_Check PyUnicode_Check
-    #define PyString_Size PyUnicode_GET_SIZE
+    #define PyString_Size PyUnicode_GET_LENGTH
 #endif
 
 static PyObject *getattr_cb=NULL, *readlink_cb=NULL, *readdir_cb=NULL,
